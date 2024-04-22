@@ -4,8 +4,6 @@ We developed a Parliament Browser with a Java backend and a JavaScript frontend.
 
 With the Parliament Browser, you can view and analyse various parliamentary data from the German Bundestag from the legislative periods 19 and 20. The parliamentary minutes published on the website of the German Bundestag serve as the data basis.
 
-## Parliament_Browser_3_1
-
 ### Getting started:
 
 1. **Select "Current File"** (top right, next to the hammer). A Dropdown Menu should open.
