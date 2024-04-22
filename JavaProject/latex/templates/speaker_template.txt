@@ -1,0 +1,5 @@
+Name: %%REDNERNAME%%, Partei: %%PARTEI%%, Fraktion: %%FRAKTION%%
+
+\begin{figure}[!ht]
+%%BILD%%
+\end{figure}

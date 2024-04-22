@@ -1,0 +1,146 @@
+/**
+  some styles of the network
+  @author Rodiana Koukouzeli
+
+*/
+
+
+body{
+    margin-top: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fdfeff;
+
+}
+
+.sidebar-menue{
+    background: #34495e;
+    margin-top: 0;
+    padding-top: 120px;
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    transition: 0.2s;
+}
+
+.sidebar-menue a{
+    color: #cccccc;
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    text-decoration: none; /* no lines under the icons */
+    padding-left: 40px;
+    box-sizing: border-box;
+
+}
+
+.sidebar-menue a:hover{
+    background:  #cccccc;
+    color: #34495e;
+}
+
+.sidebar-menue i{
+    padding-right: 10px;
+
+}
+
+label #sidebar-button{
+    z-index: 1;
+    left: 40px;
+    top: 25px;
+    font-size: 25px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 4px 8px;
+    color: white;
+    background: #34495e;
+}
+
+label #sidebar-button:hover{
+    color: #cccccc;
+    background: #34495e;
+
+}
+
+#check{
+    display: none;
+}
+
+#check:checked ~ .sidebar-menue{
+    left: 0;
+}
+
+#check:checked ~ .mainContentCateg{
+    margin-left: 250px;
+}
+
+
+.mainContentCateg{
+    padding-right: 0px;
+    left: 0;
+
+}
+
+
+
+.setFilter{
+    float: left;
+    display: inline-block;
+}
+
+.filtercheck{
+    float: right;
+    display: inline-block;
+}
+
+#neg{
+    background-color: #c23030;
+    border: none;
+}
+
+#pos{
+    background-color: #3E9D3CFF;
+    border: none;
+}
+
+#net{
+    background-color: #73797EFF;
+    border: none;
+}
+
+#SPD{
+    background-color: #EA0909FF;
+    border: none;
+}
+
+#CDU{
+    background-color: #000000FF;
+    border: none;
+    color: white;
+}
+
+#FDP{
+    background-color: #e6ff00;
+    border: none;
+}
+
+#GRÜNEN{
+    background-color: #209534;
+    border: none;
+}
+
+
+#LINKE{
+    background-color: #7846a1;
+    border: none;
+}
+
+#AfD{
+    background-color: #0278fc;
+    border: none;
+}
+
+
+

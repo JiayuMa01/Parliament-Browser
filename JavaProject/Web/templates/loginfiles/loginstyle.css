@@ -1,0 +1,124 @@
+/*
+This code snippet downloaded from CodeHim.
+For more web design code & scripts visit now:
+https://www.codehim.com
+
+*/
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+p {
+    position: relative;
+}
+
+
+/*
+took the logout button from:
+https://www.w3schools.com/css/tryit.asp?filename=trycss_link_advanced
+*/
+
+.homepage {
+    float: left;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+
+
+.logout {
+    float: right;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.admin{
+    padding-top: 30px;
+}
+
+
+.manager{
+    padding-top: 30px;
+}
+
+.user{
+    padding-top: 30px;
+}
+
+a:hover, a:active {
+    background-color: red;
+}
+
+
+.createUser{
+    display: inline-block;
+}
+#uName{
+    display: inline-block;
+}
+
+#wrapper-login {
+
+    margin-left: 500px;
+    background-color: #fff;
+    width: 35%;
+    margin: 30px auto;
+    text-align: center;
+    padding: 20px 0 0 0;
+    border-radius: 4px;
+    box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+}
+
+#login-form {
+    padding: 0 60px;
+}
+
+#username, #pw {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 4px;
+}
+
+
+#username, #pw {
+    width: 100%;
+    margin: 0;
+    color: #8a8b8e;
+    border: 1px solid #c2c0ca;
+    font-style: normal;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    background: none;
+}
+
+#create-account-wrap {
+    background-color: #eeedf1;
+    color: #8a8b8e;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+}

@@ -1,0 +1,132 @@
+<style>
+/* @author Fabian Hamid Fazli */
+
+body{
+    margin-top: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #34495e;
+
+}
+
+.sidebar-menue{
+    background:  #34495e;
+    margin-top: 0;
+    padding-top: 120px;
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    transition: 0.2s;
+}
+
+.sidebar-menue a{
+    color: #cccccc;
+    display: block; 
+    width: 100%;
+    line-height: 50px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;    
+
+}
+
+.sidebar-menue a:hover{
+    background:  #cccccc;
+    color: #34495e;
+}
+
+.sidebar-menue i{
+    padding-right: 10px;
+
+}
+
+label #sidebar-button{
+    z-index: 1;
+    left: 40px;
+    top: 25px;
+    font-size: 25px;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 4px 8px;
+    color: white;
+    background: #34495e;
+}
+
+label #sidebar-button:hover{
+    color: #cccccc;
+    background: #34495e;
+
+}
+
+#check{
+    display: none;
+}
+
+#check:checked ~ .sidebar-menue{
+    left: 0;
+}
+
+#check:checked ~ .homepage{
+    margin-left: 242px;
+}
+
+
+.homepage{
+    padding-right: 0px;
+    left: 0;
+    height: 100vh;
+    transition: 0.15s;
+}
+
+.title{
+    font-size: 75px;
+    font-family: PT Serif, serif, Arial;
+    display: inline-block;
+    text-align: center;
+    margin-top: 250px;
+    margin-left: 255px;
+    margin-right: 50px;
+    color: #091827;
+    
+
+}
+
+.panel {
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+
+.top button {
+    padding: 3px;
+    border-radius: 10px;
+    border: none;
+}
+
+.legende {
+    text-align: center;
+}
+
+.resulttitle {
+    text-align: center;
+}
+
+#text {
+    text-align: center;
+}
+
+#textAfterColor {
+    text-align: center;
+    margin: 3rem 15rem 3rem 15rem;
+
+}
+
+</style>

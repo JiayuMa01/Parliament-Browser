@@ -1,0 +1,1433 @@
+swagger: "2.0"
+
+info:
+  description: "Abschlussprojekt Gruppe_3_Montag_1"
+  version: "v0.0.1"
+  title: "Gruppe_3_Montag_1  API"
+  
+host: "localhost:4567"
+
+tags:
+- name: "Speeches"
+- name: "Comments"
+- name: "Charts"
+- name: "Login"
+- name: "Network"
+- name: "Export"
+- name: "FullTextVisualization"
+- name: "UpdateProtocolData"
+
+schemes:
+- "http"
+
+paths:
+  /speech/pos:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for tokens in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput= or searchInput=Russland"
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+            
+  /speech/token:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for tokens in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+  
+  /speech/sentiment:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for sentiment in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    positive:
+                      type: "number"
+                    neutral:
+                      type: "number"
+                    negative:
+                      type: "number"
+  
+  /speech/namedEntities:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for named entities in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                value:
+                  type: string
+                count:
+                  type: number
+                name:
+                  type: string
+                x:
+                  type: number
+  
+  /speech/lemma:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for lemmas in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+
+  /speech/speaker:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for speakers in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+                      
+  /speech/persons:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for persons in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+
+  /speech/organisations:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for organisations in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+                      
+  /speech/locations:
+    get:
+      tags:
+      - "Speeches"
+      summary: "path to get data for locations in speeches"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+                      
+  /comment/sentiment:
+    get:
+      tags:
+      - "Comments"
+      summary: "path to get data for sentiment in comments"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    positive:
+                      type: "number"
+                    neutral:
+                      type: "number"
+                    negative:
+                      type: "number"
+  
+  /comment/persons:
+    get:
+      tags:
+      - "Comments"
+      summary: "path to get data for persons in comments"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+  
+  /comment/organisations:
+    get:
+      tags:
+      - "Comments"
+      summary: "path to get data for organisations in comments"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+  
+  /comment/locations:
+    get:
+      tags:
+      - "Comments"
+      summary: "path to get data for locations in comments"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "searchInput"
+        in: "query"
+        description: "eg. searchInput="
+        type: "string"
+        required: true
+        allowEmptyValue: true
+      - name: "resultLimit"
+        in: "query"
+        description: "eg. resultLimit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1663711200000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1665698400000"
+        type: "string"
+        required: true
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: "object"
+            properties:
+              result:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    value:
+                      type: "string"
+                    count:
+                      type: "number"
+                      
+  /:
+    get:
+      tags:
+      - "Charts"
+      summary: Returns an HTML page with cool charts
+      description: This route returns an HTML page with some cool charts generated using the D3 library.
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+          
+  /loginFeature/update/speaker:
+    get:
+      tags:
+      - "Login"
+      summary:  update speaker from speech. (Please don't try with true IDs combination. Otherwise it will dirty the database)
+      description: returns string "true" if successful else "false"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "speechID"
+        in: "query"
+        description: "eg. speakerID=111"
+        type: "string"
+        required: true
+      - name: "speakerID"
+        in: "query"
+        description: "eg. speechID=1000"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+  
+  /loginFeature/update/comment:
+    get:
+      tags:
+      - "Login"
+      summary:  update commentator from comment. (Please don't try with true IDs combination. Otherwise it will dirty the database)
+      description: returns string "true" if successful else "false"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "commentID"
+        in: "query"
+        description: "eg. commentID=111"
+        type: "string"
+        required: true
+      - name: "commentatorID"
+        in: "query"
+        description: "eg. commentatorID=1000"
+        type: "string"
+        required: true
+      - name: "fraction"
+        in: "query"
+        description: "eg. fraction=abc"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+            
+  /login:
+    get:
+      tags:
+      - "Login"
+      summary: Returns a page for login
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+            
+  /login/users:
+    get:
+      tags:
+      - "Login"
+      summary:  If user is authenticated, users role is beeing returned. If not simply return false.
+      description: |
+        localhost:4567/login/users?user=User1&password=pwU1
+        localhost:4567/login/users?user=User2&password=pwU2
+        localhost:4567/login/users?user=User3&password=pwU3
+      produces:
+        - "application/json"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "eg. user=User3"
+        type: "string"
+        required: true
+      - name: "password"
+        in: "query"
+        description: "eg. password=pwU1"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+  
+  /login/create:
+    get:
+      tags:
+      - "Login"
+      summary:  create a new role(Please don't try. Otherwise it will dirty the database)
+      description: |
+        Returns "Username already exists, please choose another one."
+        or "User username added!"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "eg. user=User4"
+        type: "string"
+        required: true
+      - name: "password"
+        in: "query"
+        description: "eg. password=pwU4"
+        type: "string"
+        required: true
+      - name: "role"
+        in: "query"
+        description: "eg. password=pwU4"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+  
+  /login/add:
+    get:
+      tags:
+      - "Login"
+      summary: add a new speaker into database(Please don't try. Otherwise it will dirty the database)
+      description: |
+        Returns "Username already exists, please choose another one."
+        or "Speaker firstname lastname added!"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "id"
+        in: "query"
+        description: "eg. id=123"
+        type: "string"
+        required: true
+      - name: "firstname"
+        in: "query"
+        description: "eg. firstname=aaa"
+        type: "string"
+        required: true
+      - name: "lastname"
+        in: "query"
+        description: "eg. lastname=bbb"
+        type: "string"
+        required: true
+      - name: "party"
+        in: "query"
+        description: "eg. party=qwe"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+  
+  /login/addspeech:
+    get:
+      tags:
+      - "Login"
+      summary: add a new speech into database(Please don't try. Otherwise it will dirty the database)
+      description: |
+        Returns "SpeechID already exists, please choose another one.""
+        or "Speech added!"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "id"
+        in: "query"
+        description: "eg. id=123"
+        type: "string"
+        required: true
+      - name: "text"
+        in: "query"
+        description: "eg. text=wasd"
+        type: "string"
+        required: true
+      - name: "speakerID"
+        in: "query"
+        description: "eg. speakerID=111"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+  
+  /login/delete:
+    get:
+      tags:
+      - "Login"
+      summary: delete a speaker from database(Please don't try. Otherwise it will dirty the database)
+      description: |
+        Returns "Diesen Redner gibt es nicht."
+        or "Redner wurde entfernt"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "id"
+        in: "query"
+        description: "eg. id=123"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+            
+  /login/deleteuser:
+    get:
+      tags:
+      - "Login"
+      summary: delete a user from database(Please don't try. Otherwise it will dirty the database)
+      description: |
+        Returns "Diesen Redner gibt es nicht."
+        or "User wurde entfernt"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "eg. user=User1"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+    
+  /login/deletepw:
+    get:
+      tags:
+      - "Login"
+      summary: update the password for a user(Please don't try. Otherwise it will dirty the database)
+      description: returns string "true" if successful else "false"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "eg. user=User1"
+        type: "string"
+        required: true
+      - name: "oldPassword"
+        in: "query"
+        description: "eg. oldPassword=pwU1"
+        type: "string"
+        required: true
+      - name: "newPassword"
+        in: "query"
+        description: "eg. newPassword=pwU111"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+  
+  /login/upgradeuser:
+    get:
+      tags:
+      - "Login"
+      summary: upgrade the role of a user(Please don't try. Otherwise it will dirty the database)
+      description: returns string "true" if successful else "false"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "eg. user=User1"
+        type: "string"
+        required: true
+      - name: "userpassword"
+        in: "query"
+        description: "eg. userpassword=pwU1"
+        type: "string"
+        required: true
+      - name: "role"
+        in: "query"
+        description: "eg. role=admin"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: "string"
+            
+  /network/comments/vis:
+    get:
+      tags:
+      - "Network"
+      summary: Returns a page for comment network
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+  
+  /network/categories/vis:
+    get:
+      tags:
+      - "Network"
+      summary: Returns a page for categories network
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+  
+  /network/speeches/vis:
+    get:
+      tags:
+      - "Network"
+      summary: Returns a page for speeches network
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+  
+  /network/comments:
+    get:
+      tags:
+      - "Network"
+      summary: Returns a list of nodes and links. Datastructure for comment network
+      produces:
+        - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "eg. limit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1665525600000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1668034800000"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              nodes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    party:
+                      type: string
+                    id:
+                      type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sentiment:
+                      type: number
+                    wp:
+                      type: number
+                    source:
+                      type: string
+                    target:
+                      type: string
+  
+  /network/comments/protocol:
+    get:
+      tags:
+      - "Network"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "protocol"
+        in: "query"
+        description: "eg. protocol=Plenarprotokoll%2020/66"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              nodes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    party:
+                      type: string
+                    id:
+                      type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sentiment:
+                      type: number
+                    wp:
+                      type: number
+                    source:
+                      type: string
+                    target:
+                      type: string
+  
+  /network/categories:
+    get:
+      tags:
+      - "Network"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "eg. limit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1665525600000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1668034800000"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              nodes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    party:
+                      type: string
+                    id:
+                      type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sentiment:
+                      type: number
+                    source:
+                      type: string
+                    target:
+                      type: string
+  
+  /network/categories/protocol:
+    get:
+      tags:
+      - "Network"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "protocol"
+        in: "query"
+        description: "eg. protocol=Plenarprotokoll%2020/66"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              nodes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    party:
+                      type: string
+                    id:
+                      type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sentiment:
+                      type: number
+                    wp:
+                      type: number
+                    source:
+                      type: string
+                    target:
+                      type: string
+                      
+  /network/speeches:
+    get:
+      tags:
+      - "Network"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        description: "eg. limit=1000"
+        type: "string"
+        required: true
+      - name: "startDate"
+        in: "query"
+        description: "eg. startDate=1665525600000"
+        type: "string"
+        required: true
+      - name: "endDate"
+        in: "query"
+        description: "eg. endDate=1668034800000"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              nodes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    party:
+                      type: string
+                    id:
+                      type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sentiment:
+                      type: number
+                    wp:
+                      type: number
+                    source:
+                      type: string
+                    target:
+                      type: string
+  
+  /network/speeches/protocol:
+    get:
+      tags:
+      - "Network"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "protocol"
+        in: "query"
+        description: "eg. protocol=Plenarprotokoll%2020/66"
+        type: "string"
+        required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              nodes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    party:
+                      type: string
+                    id:
+                      type: string
+              links:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    sentiment:
+                      type: number
+                    wp:
+                      type: number
+                    source:
+                      type: string
+                    target:
+                      type: string
+  
+  /Volltextvisualisierung:
+    get:
+      tags:
+      - "FullTextVisualization"
+      summary: Returns a page for Volltextvisualisierung
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+  
+  /export:
+    get:
+      tags:
+      - "Export"
+      summary: Returns a page for export and editing templates
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+          
+  /export/all:
+    get:
+      tags:
+      - "Export"
+      summary: Export all protocols as a PDF file
+      description: Returns the PDF file with all protocols in it.
+      produces:
+        - application/pdf
+      responses:
+        200:
+          description: PDF file with protocols
+          schema:
+            type: file
+  
+  /export/exportSomeProtocols:
+    post:
+      summary: Create a PDF with selected protocols
+      tags: 
+      - "Export"
+      description: |
+        This API endpoint creates a PDF with selected protocols based on the given request in JSON format.
+      consumes:
+        - application/json
+      produces:
+        - text/plain
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              protocols:
+                type: object
+                description: JSON object with the protocols to be included in the PDF
+                example: {
+                  "protocol1": {
+                    "name": "Protocol 1",
+                    "description": "Description of Protocol 1"
+                  },
+                  "protocol2": {
+                    "name": "Protocol 2",
+                    "description": "Description of Protocol 2"
+                  }
+                }
+      responses:
+        '200':
+          description: Successfully created the PDF
+          schema:
+            type: string
+            description: Message indicating successful creation of PDF
+            example: Erfolgreich erstellt!
+  
+  /export/displaySomeProtocols:
+    get:
+      summary: Returns the PDF created from a set of protocols
+      tags: 
+      - "Export"
+      produces:
+        - application/pdf
+      responses:
+        200:
+          description: Success
+          schema:
+            type: string
+            format: binary
+  
+  /export/getTemplateNames:
+    get:
+      tags:
+      - "Export"
+      summary: Get template names
+      description: Returns the names of available templates
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: Names of available templates
+          schema:
+            type: string
+  
+  /export/getTemplateTextByName/{templatename}:
+    get:
+      tags:
+      - "Export"
+      summary: Returns the text of a given LaTeX template by name.
+      produces:
+        - text/plain
+      parameters:
+        - name: templatename
+          in: path
+          description: "The name of the template to retrieve."
+          required: true
+          type: string
+      responses:
+        200:
+          description: "The requested template text."
+          schema:
+            type: string
+        404:
+          description: "The specified template was not found."
+  
+  /export/saveTemplate:
+    post:
+      tags:
+      - "Export"
+      summary: Creates a new template from the given data, if the template already exists it will be overwritten
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: template
+          description: The JSON object containing the template name and text
+          schema:
+            type: object
+            required:
+              - name
+              - text
+            properties:
+              name:
+                type: string
+                description: The name of the template to be saved
+              text:
+                type: string
+                description: The text of the template to be saved
+      responses:
+        '200':
+          description: The template was successfully saved
+          schema:
+            type: string
+          
+  /pageAddData:
+    get:
+      tags:
+      - "UpdateProtocolData"
+      summary: Returns an HTML page for updating protocol data
+      produces:
+        - text/html
+      responses:
+        '200':
+          description: Success
+  
+  /addNewData:
+    get:
+      tags:
+      - "UpdateProtocolData"
+      produces:
+        - "application/json"
+      summary: "Download XMLs, analyze XMLs, insert to MongoDB and NLP. Only new XMLs will be downloaded(Please don't try. Otherwise it will dirty the database)"
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                downloadedXMLsName:
+                  type: array
+                  items:
+                    type: string
+  
+  /uploadStatus:
+    get:
+      tags:
+      - "UpdateProtocolData"
+      produces:
+        - "application/json"
+      summary: "Get current upload status, NLP process status"
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                count:
+                  type: "integer"
+                total:
+                  type: "integer"
+                _id:
+                  type: "string"
+  

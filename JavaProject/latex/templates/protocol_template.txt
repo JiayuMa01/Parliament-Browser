@@ -1,0 +1,8 @@
+% Hier wird für jedes Protokoll die Kapitelüberschrift festgelegt
+% PROTOKOLLINDEX wird mit dem Index des Protokolls / der Sitzungsnummer gefüllt
+% WAHLPERIODE wird mit der entsprechenden Wahlperiode (19 oder 20) gefüllt
+\chapter{%%PROTOKOLLINDEX%%. Sitzung der %%WAHLPERIODE%%. Wahlperiode}
+\thispagestyle{empty}
+
+% Hier werden die Reden gruppiert nach den Tagesordnungspunkten ausgegeben.
+%%REDEN%%

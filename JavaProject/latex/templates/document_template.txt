@@ -1,0 +1,22 @@
+\documentclass[10pt, a4paper]{report}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage[left=1cm, right=1cm, top=1cm, bottom=1cm]{geometry}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+
+\usepackage{hyperref}
+
+\begin{document}
+
+\tableofcontents
+
+%%PROTOKOLLE%%
+
+\end{document}

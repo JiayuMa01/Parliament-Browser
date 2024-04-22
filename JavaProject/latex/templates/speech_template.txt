@@ -1,0 +1,36 @@
+\subsection{Rede %%REDEID%%}
+
+\textbf{Die Rede:}
+
+% Bestehend aus Name, Partei/Fraktion und Bild
+%%REDNER%%
+
+%%REDETEXT%%
+
+\textbf{Kommentare:}
+
+%%KOMMENTARE%%
+
+\textbf{NLP-Informationen:}
+
+\textit{DDC-Kategorie der Rede:}
+
+%%DDC%%
+
+\textit{Named Entities:}
+
+Personen:
+
+%%PERSONEN%%
+
+Orte:
+
+%%ORTE%%
+
+Organisationen:
+
+%%ORGANISATIONEN%%
+
+\textit{Sentiment auf Satzebene:}
+
+%%SENTIMENT%%
